@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    <style>
+        /* Responsive BreakPoints for Personal Image */
+        /* Mobile */
+        @media only screen and (min-width: 411px) and (min-height: 731px) {
+           .container
+           {
+               margin-top: 6rem;
+           }
+            .form-signin
+            {
+                padding: 2rem;
+                max-width: 25rem;min-width: 24rem;
+            }
+        }
+        /* Tablet */
+        @media only screen and (min-width: 768px) and (min-height: 1024px) {
+            .container
+            {
+                margin-top: 12rem;
+            }
+            .form-signin
+            {
+                max-width: 36rem;min-width: 36rem;
+            }
+        }
+        /* Laptop */
+        @media only screen and (min-width: 1366px) and (min-height: 768px) {
+            .container
+            {
+                margin-top: 4rem;
+            }
+            .form-signin
+            {
+                max-width: 40rem;min-width: 40rem;
+            }
+
+        }
+        /* Laptop */
+        @media only screen and (min-width: 1920px) and (min-height: 1080px) {
+            .container
+            {
+               margin-top: 9rem;
+            }
+            .form-signin
+            {
+                max-width: 46rem;min-width: 46rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container d-flex flex-column align-items-center">
+    <form class="form-signin" style="" method="post" th:action="@{/login}">
+
+        <div class="d-flex justify-content-center" style=""><h2 class="form-signin-heading" style="margin-bottom: 5rem;
+font-size: 3rem;">Login</h2></div>
+        <div class="d-flex flex-column align-items-center">
+        <p th:if="${param.error}" class="bg-danger text-light p-1">Invalid username and password.</p>
+        <p th:if="${param.logout}" class="bg-success text-dark p-1">You have been logged out.</p>
+        </div>
+            <p>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required
+                   autofocus>
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block p-1" type="submit">Sign in</button>
+    </form>
+    <a class="mt-2" style="font-size: 1.2rem;" href="http://localhost:8080/register">Don't have an account? Signup here</a>
+</div>
+</body>
+</html>

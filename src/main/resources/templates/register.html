@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Register</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    <style>
+        /* Responsive BreakPoints for Personal Image */
+        /* Mobile */
+        @media only screen and (min-width: 411px) and (min-height: 731px) {
+            .container
+            {
+                margin-top: 0;
+            }
+            .form-signin
+            {
+                padding: 2rem;
+                max-width: 25rem;min-width: 24rem;
+            }
+        }
+        /* Tablet */
+        @media only screen and (min-width: 768px) and (min-height: 1024px) {
+            .container
+            {
+                margin-top: 6rem;
+            }
+            .form-signin
+            {
+                max-width: 36rem;min-width: 36rem;
+            }
+        }
+        /* Laptop */
+        @media only screen and (min-width: 1366px) and (min-height: 768px) {
+            .container
+            {
+                margin-top: 0;
+            }
+            .form-signin
+            {
+                max-width: 40rem;min-width: 40rem;
+            }
+
+        }
+        /* Laptop */
+        @media only screen and (min-width: 1920px) and (min-height: 1080px) {
+            .container
+            {
+                margin-top: 6rem;
+            }
+            .form-signin
+            {
+                max-width: 46rem;min-width: 46rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container d-flex flex-column align-items-center">
+    <form class="form-signin" method="post" th:action="@{/register}" th:object="${user}">
+
+        <div class="d-flex justify-content-center" style=""><h2 class="form-signin-heading" style="margin-bottom: 5rem;
+font-size: 3rem;">Register</h2></div>
+        <div class="d-flex flex-column align-items-center">
+            <p th:if="${param.exists}" class="bg-warning text-dark p-1">User is already registered.</p>
+            <p th:if="${param.error}" class="bg-danger text-light p-1">Internal Server Error. Please try again.</p>
+            <p th:if="${param.registered}" class="bg-success text-light p-1">User successfully registered.</p>
+        </div>
+        <p>
+            <label for="user_name" class="sr-only">Username</label>
+            <input type="text" id="user_name" class="form-control" placeholder="Username" th:field="*{user_name}" required
+                   >
+        </p>
+        <p>
+            <label for="email_id" class="sr-only">Email ID</label>
+            <input type="email" id="email_id" class="form-control" placeholder="Email ID" th:field="*{email_id}" required>
+        </p>
+        <p>
+            <label for="phone_number" class="sr-only">Phone Number</label>
+            <input type="number" id="phone_number" class="form-control" placeholder="Phone Number"
+                   required th:field="*{phone_number}"
+                   >
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" minlength="8" id="password" class="form-control" placeholder="Password" th:field="*{password}" required>
+        </p>
+        <p>
+            <label for="confirm_password" class="sr-only">Confirm Password</label>
+            <input type="password" minlength="8" id="confirm_password" class="form-control"
+                   placeholder="Confirm Password" required>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block p-1" id="register_button" type="submit">Register</button>
+        <button class="btn btn-lg btn-warning btn-block p-1"  type="reset">Clear</button>
+    </form>
+    <a class="mt-2" style="font-size: 1.2rem;" href="http://localhost:8080/oauth2/authorize?response_type=code&client_id=client&scope=openid&redirect_uri=http://127.0.0.1:4200/authorized&code_challenge=QYPAZ5NU8yvtlQ9erXrUYR-T5AGCjCF47vN-KsaI2A8&code_challenge_method=S256">Already have an account? Login
+        here</a>
+</div>
+</body>
+</html>
