@@ -6,7 +6,7 @@ COPY . .
 #
 # Package stage
 #
-FROM openjdk:11-slim-jdk
+FROM openjdk:11-jdk-slim
 COPY --from=build /target/*.jar demo.jar
 # ENV PORT=8080
 EXPOSE 8080
