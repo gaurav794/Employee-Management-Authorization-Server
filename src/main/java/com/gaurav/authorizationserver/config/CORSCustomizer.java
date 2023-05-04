@@ -17,7 +17,7 @@ public class CORSCustomizer {
                     {
                         CorsConfiguration corsConfiguration = new CorsConfiguration();
                         corsConfiguration.setAllowCredentials(true);
-                        corsConfiguration.setAllowedOrigins(List.of("http://127.0.0.1:4200"));
+                        corsConfiguration.setAllowedOrigins(List.of("https://employee-management-pi-nine.vercel.app"));
                         corsConfiguration.setAllowedHeaders(List.of("*"));
                         corsConfiguration.setAllowedMethods(List.of("*"));
                         return corsConfiguration;

@@ -59,7 +59,7 @@ public class WebSecurityConfig {
                         form.loginPage("/login")
                                 .permitAll())
                 .rememberMe().and()
-                .logout().logoutSuccessUrl("http://127.0.0.1:4200/login").permitAll().and()
+                .logout().logoutSuccessUrl("https://employee-management-pi-nine.vercel.app/login").permitAll().and()
                 .build();
     }
 

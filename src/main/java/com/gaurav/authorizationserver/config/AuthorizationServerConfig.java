@@ -64,7 +64,7 @@ public class AuthorizationServerConfig {
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 //After successfully authentication the client
-                .redirectUri("http://127.0.0.1:4200/authorized")
+                .redirectUri("https://employee-management-pi-nine.vercel.app/authorized")
                 .tokenSettings
                         (TokenSettings.builder()
                                 .accessTokenTimeToLive(Duration.ofHours(10))
@@ -79,7 +79,7 @@ public class AuthorizationServerConfig {
     //Add server settings
     @Bean
     public ProviderSettings providerSettings() {
-        return ProviderSettings.builder().issuer("http://localhost:8080").build();
+        return ProviderSettings.builder().issuer("https://authorization-server-dxji.onrender.com").build();
     }
 
     //Generate Keys
